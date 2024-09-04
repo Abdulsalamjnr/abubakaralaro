@@ -1,7 +1,7 @@
 /* General Styles */
 body {
     font-family: Arial, sans-serif;
-    margin: 35px;
+    margin: 5px;
     padding: 0;
     background-color: #0f0e0e;
 }
@@ -157,8 +157,8 @@ body {
 }
 
 .gallery-grid img {
-    max-width: 20%;
-    height: 50%;
+    max-width: 50%;
+    height: 40%;
     border-radius: 10px;
 }
 
