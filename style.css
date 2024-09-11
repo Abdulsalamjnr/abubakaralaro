@@ -3,7 +3,7 @@ body {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     margin: 6px;
     padding: 0;
-    background-color: #464444;
+    background-color: #ffffff;
 }
 
 /* Header Styles */
@@ -11,7 +11,7 @@ body {
     background-color: #0a4a75;
     color: white;
     padding: 10px 0;
-    position: relative; /* Needed for absolute positioning of the menu toggle */
+    position: relative;
 }
 
 .header .container {
@@ -24,6 +24,7 @@ body {
 
 .logo img {
     display: block;
+    max-width: 100%; /* Ensuring logo scales */
 }
 
 /* Navigation Styles */
@@ -63,95 +64,10 @@ body {
     cursor: pointer;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .header .container {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .nav {
-        display: none; /* Hide navigation initially */
-        width: 100%;
-        text-align: center;
-    }
-
-    .nav ul {
-        flex-direction: column;
-    }
-
-    .nav ul li {
-        margin: 10px 0;
-    }
-
-    .menu-toggle {
-        display: block; /* Show hamburger menu */
-    }
-
-    .nav.active {
-        display: flex; /* Show menu when active */
-    }
-}
-
-/* Slideshow Styles */
-.slideshow-container {
-    position: relative;
-    max-width: 100%;
-    margin: auto;
-}
-
-.mySlides {
-    display: none;
-    position: relative;
-}
-
-.slide-image {
-    width: 100%;
-    height: auto;
-}
-
-.text {
-    color: #e6e6e6;
-    font-size: 30px;
-    font-weight: 700;
-    padding: 12px 24px;
-    position: absolute;
-    bottom: 80px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 19px;
-}
-
-@keyframes fade {
-    from { opacity: .4 }
-    to { opacity: 1 }
-}
-
-.mySlides.fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
-}
-
-/* Section Styles */
-.about, .services, .gallery, .contact {
-    padding: 60px 0;
-    background-color: #fff;
-    text-align: center;
-}
-
-.about h2, .services h2, .gallery h2, .contact h2 {
-    margin-bottom: 30px;
-}
-
-.service-item {
-    margin-bottom: 20px;
-}
-
+/* Review Styles */
 .review-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
     gap: 20px;
 }
 
@@ -201,6 +117,53 @@ body {
     color: #333;
     line-height: 1.5;
 }
+
+/* Slideshow Styles */
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+}
+
+.mySlides {
+    display: none;
+    position: relative;
+}
+
+.slide-image {
+    width: 100%;
+    height: auto;
+}
+
+.text {
+    color: #e6e6e6;
+    font-size: 30px;
+    font-weight: 700;
+    padding: 12px 24px;
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 19px;
+}
+
+/* Section Styles */
+.about, .services, .gallery, .contact, .review {
+    padding: 60px 0;
+    background-color: #fff;
+    text-align: center;
+}
+
+.about h2, .services h2, .gallery h2, .contact h2, .review h2 {
+    margin-bottom: 30px;
+}
+
+.service-item {
+    margin-bottom: 20px;
+}
+
 .gallery-grid {
     display: flex;
     gap: 30px;
@@ -209,17 +172,16 @@ body {
 }
 
 .gallery-grid img {
-    max-width:700Ppx;
-    height: 600px;
+    max-width: 100%; /* Ensure images are responsive */
+    height: auto;
     border-radius: 10px;
 }
 
-
-.social{
+/* Social Icons */
+.social {
     font-size: 36px;
     color: #333;
 }
-
 
 /* Footer Styles */
 .footer {
@@ -227,4 +189,71 @@ body {
     color: white;
     text-align: center;
     padding: 20px 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    /* Header */
+    .header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* Navigation */
+    .nav {
+        display: none; /* Hide navigation initially */
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav ul {
+        flex-direction: column;
+    }
+
+    .nav ul li {
+        margin: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block; /* Show hamburger menu */
+    }
+
+    .nav.active {
+        display: flex; /* Show menu when active */
+        flex-direction: column;
+    }
+
+    /* Slideshow */
+    .text {
+        font-size: 18px; /* Reduce text size for mobile */
+        bottom: 40px; /* Adjust position */
+    }
+
+    /* Reviews */
+    .review-grid {
+        grid-template-columns: 1fr; /* Stack reviews on mobile */
+    }
+
+    /* Gallery */
+    .gallery-grid {
+        flex-direction: column; /* Stack gallery images vertically */
+    }
+
+    .gallery-grid img {
+        height: auto;
+        max-width: 100%; /* Ensure images fit smaller screens */
+    }
+
+    /* General adjustments for smaller screens */
+    .about, .services, .gallery, .contact, .review {
+        padding: 40px 0; /* Reduce padding on mobile */
+    }
+
+    .service-item, .review-card {
+        margin-bottom: 20px;
+    }
+
+    .footer {
+        padding: 10px 0;
+    }
 }

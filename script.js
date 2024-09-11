@@ -13,7 +13,6 @@ function showSlides() {
     setTimeout(showSlides, 3000); // Change image every 3 seconds
 }
 
-
 document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.querySelector('.menu-toggle');
     const nav = document.querySelector('.nav');
@@ -22,3 +21,29 @@ document.addEventListener('DOMContentLoaded', function() {
         nav.classList.toggle('active');
     });
 });
+
+const reviewCards = document.querySelectorAll('.review-card');
+let currentIndex = 0;
+
+function showCard(index) {
+    reviewCards.forEach((card, i) => {
+        card.style.display = i === index ? 'block' : 'none';
+    });
+}
+
+function nextCard() {
+    currentIndex = (currentIndex + 1) % reviewCards.length;
+    showCard(currentIndex);
+}
+
+function previousCard() {
+    currentIndex = (currentIndex - 1 + reviewCards.length) % reviewCards.length;
+    showCard(currentIndex);
+}
+
+// Auto-slide every 3 seconds
+setInterval(nextCard, 3000);
+
+// Initial display
+showCard(currentIndex);
+
